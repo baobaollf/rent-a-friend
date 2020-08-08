@@ -1,14 +1,14 @@
-package com.rent_a_friend.ui.home;
+package com.rent_a_friend.ui.feed;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class FeedViewHolder extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public FeedViewHolder() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
     }
