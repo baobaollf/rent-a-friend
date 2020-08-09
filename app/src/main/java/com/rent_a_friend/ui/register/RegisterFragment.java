@@ -1,4 +1,4 @@
-package com.rent_a_friend.ui.notifications;
+package com.rent_a_friend.ui.register;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.rent_a_friend.R;
 
-public class NotificationsFragment extends Fragment {
+public class RegisterFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private RegisterViewModel registerViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        registerViewModel =
+                ViewModelProviders.of(this).get(RegisterViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_register, container, false);
+        final TextView textView = root.findViewById(R.id.text_register);
+        registerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -8,18 +8,32 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.rent_a_friend.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="Rent A Friend"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_registerFragment"
+            app:destination="@id/registerFragment" />
+
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_login"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_register"
+            app:destination="@id/navigation_register" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.rent_a_friend.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_login"
+        android:name="com.rent_a_friend.ui.login.LoginFragment"
+        android:label="@string/title_activity_login"
+        tools:layout="@layout/fragment_login" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.rent_a_friend.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_register"
+        android:name="com.rent_a_friend.ui.register.RegisterFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_register" />
+
+
+
 </navigation>
