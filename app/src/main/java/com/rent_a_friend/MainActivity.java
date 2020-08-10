@@ -43,29 +43,29 @@ public class MainActivity extends AppCompatActivity {
         //circleImageView = findViewById(R.id.profile_image);
 
         callbackManager = CallbackManager.Factory.create();
-
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-        //loginButton.setFragment(this);
-        loginButton.setReadPermissions(Arrays.asList(EMAIL));
-        // If you are using in a fragment, call loginButton.setFragment(this);
-
-        // Callback registration
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                // App code
-            }
-
-            @Override
-            public void onCancel() {
-                // App code
-            }
-
-            @Override
-            public void onError(FacebookException exception) {
-                // App code
-            }
-        });
+//
+//        loginButton = (LoginButton) findViewById(R.id.login_button);
+//        //loginButton.setFragment(this);
+//        loginButton.setReadPermissions(Arrays.asList(EMAIL));
+//        // If you are using in a fragment, call loginButton.setFragment(this);
+//
+//        // Callback registration
+//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                // App code
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                // App code
+//            }
+//
+//            @Override
+//            public void onError(FacebookException exception) {
+//                // App code
+//            }
+//        });
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
