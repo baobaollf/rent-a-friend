@@ -8,14 +8,14 @@
     app:navGraph="@navigation/mobile_navigation" />
     ]]>
 
-<!--    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--        android:id="@+id/profile_image"-->
-<!--        android:layout_width="96dp"-->
-<!--        android:layout_height="96dp"-->
-<!--        android:src="@drawable/profile"-->
-<!--        app:civ_border_width="2dp"-->
-<!--        app:civ_border_color="#FF000000"/>-->
+    <!--    <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--        android:id="@+id/profile_image"-->
+    <!--        android:layout_width="96dp"-->
+    <!--        android:layout_height="96dp"-->
+    <!--        android:src="@drawable/profile"-->
+    <!--        app:civ_border_width="2dp"-->
+    <!--        app:civ_border_color="#FF000000"/>-->
 
     <TextView
         android:layout_width="match_parent"
@@ -104,23 +104,23 @@
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.2"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/start"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:layout_marginStart="48dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="48dp"-->
-<!--        android:layout_marginBottom="204dp"-->
-<!--        android:enabled="true"-->
-<!--        android:text="Login with Facebook"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.496"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/password"-->
-<!--        app:layout_constraintVertical_bias="0.2" />-->
+    <!--    <Button-->
+    <!--        android:id="@+id/start"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="start"-->
+    <!--        android:layout_marginStart="48dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="48dp"-->
+    <!--        android:layout_marginBottom="204dp"-->
+    <!--        android:enabled="true"-->
+    <!--        android:text="Login with Facebook"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.496"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/password"-->
+    <!--        app:layout_constraintVertical_bias="0.2" />-->
 
     <ProgressBar
         android:id="@+id/loading"
