@@ -22,7 +22,7 @@ public class FeedFragment extends Fragment {
         RecyclerView recyclerView = listItemsView.findViewById(R.id.feed_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter adapter = new RecyclerViewAdapter();
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
         return listItemsView;
     }
