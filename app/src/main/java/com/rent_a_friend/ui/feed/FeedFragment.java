@@ -1,6 +1,7 @@
 package com.rent_a_friend.ui.feed;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,28 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.rent_a_friend.R;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import kotlin.collections.ArrayDeque;
+
 public class FeedFragment extends Fragment {
+
+    List<Map<String, Object>> list = new ArrayDeque<>();
+    List<String> username = new ArrayList<>();
+    List<String> imageUrl = new ArrayList<>();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Nullable
     @Override
@@ -22,8 +42,34 @@ public class FeedFragment extends Fragment {
         RecyclerView recyclerView = listItemsView.findViewById(R.id.feed_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter();
+
+
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(), username, imageUrl);
+
         recyclerView.setAdapter(adapter);
+        getFeeds(adapter);
         return listItemsView;
+    }
+
+    private void getFeeds(final RecyclerViewAdapter adapter) {
+        db.collection("feeds").orderBy("username", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.d("data_base", "listen:error");
+                    return;
+                }
+                for (QueryDocumentSnapshot doc : value) {
+                    if(doc.get("image") != null) {
+                        Log.d("data_base", doc.getString("image"));
+                        imageUrl.add(doc.getString("image"));
+                    }
+                    if (doc.get("username") != null) {
+                        username.add(doc.getString("username"));
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 }
