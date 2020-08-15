@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="text_home" type="id">text home</string>
+    <string name="email" type="id">email</string>
+
+
+    <string name="viewPager" type="id">viewPager</string>
 </resources>
