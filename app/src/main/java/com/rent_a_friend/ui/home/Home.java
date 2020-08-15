@@ -22,11 +22,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.rent_a_friend.MainActivity;
 import com.rent_a_friend.R;
-import com.rent_a_friend.Register;
 import com.rent_a_friend.ui.home.HomeViewModel;
 import com.rent_a_friend.ui.home.HomeFragment;
 import com.rent_a_friend.ui.login.Login;
 import com.rent_a_friend.ui.login.LoginFragment;
+import com.rent_a_friend.ui.register.Register;
 import com.rent_a_friend.ui.register.RegisterFragment;
 
 import java.util.ArrayList;
@@ -60,31 +60,13 @@ public class Home extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if logged in, go to activity page
-                if(sp.getBoolean("logged",false)) {
-                    goToMainActivity();
-                }
                 // show activity page if not logged in before
-
-                else {
-                    Intent myIntent = new Intent(v.getContext(), Login.class);
-                    startActivityForResult(myIntent, 0);
-            }
+                Intent myIntent = new Intent(v.getContext(), Login.class);
+                startActivityForResult(myIntent, 0);
                 goToMainActivity();
-                sp.edit().putBoolean("logged",true).apply();
-//                switch (v.getId()) {
-//                    case R.id.login:
-//                        goToLogin();
-//                        goToMainActivity();
-//                        sp.edit().putBoolean("logged", true).apply();
-//                        break;
-//                    case R.id.register:
-//                        goToLogin();
-//                        //goToMainActivity();
-//                        sp.edit().putBoolean("registered", true).apply();
-//                        break;
-//                }
+
             }
+
         });
 
         register = (Button) findViewById(R.id.register);
@@ -94,17 +76,11 @@ public class Home extends AppCompatActivity {
                 // go to register page
                     Intent myIntent = new Intent(v.getContext(), Register.class);
                     startActivityForResult(myIntent, 1);
-                // after registering, Login
+//                // after registering, Login
                     goToLogin();
-                // then go to activity page
+//                // then go to activity page
                     goToMainActivity();
 
-//                else {
-//                    goToLogin();
-//                }
-//
-//                goToLogin();
-//                sp.edit().putBoolean("registered", true).apply();
 
             }
 

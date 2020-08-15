@@ -42,11 +42,11 @@
             app:destination="@id/navigation_feed" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_feed"
-        android:name="com.rent_a_friend.ui.feed.FeedFragment"
-        android:label="@string/title_feeds"
-        tools:layout="@layout/fragment_feed" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_feed"-->
+<!--        android:name="com.rent_a_friend.ui.feed.FeedFragment"-->
+<!--        android:label="@string/title_feeds"-->
+<!--        tools:layout="@layout/fragment_feed" />-->
 
 
 
