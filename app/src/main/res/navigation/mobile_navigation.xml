@@ -34,6 +34,12 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_register" />
 
+    <fragment
+        android:id="@+id/navigation_feed"
+        android:name="com.rent_a_friend.ui.feed.FeedFragment"
+        android:label="@string/title_feeds"
+        tools:layout="@layout/fragment_feed" />
+
 
 
 </navigation>
