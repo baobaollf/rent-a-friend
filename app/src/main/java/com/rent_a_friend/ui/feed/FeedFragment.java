@@ -30,7 +30,6 @@ import kotlin.collections.ArrayDeque;
 
 public class FeedFragment extends Fragment {
 
-    List<Map<String, Object>> list = new ArrayDeque<>();
     List<String> username = new ArrayList<>();
     List<String> imageUrl = new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment
     }
 
     @Override
-    public void onViewCreated(View v,Bundle savedInstanceState){
+    public void onViewCreated(View v, Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
         navController = Navigation.findNavController(v);
         v.findViewById(R.id.login).setOnClickListener(this);
@@ -49,10 +49,9 @@ public class HomeFragment extends Fragment
 
     }
 
-        @Override
-    public void onClick(View view){
-        switch (view.getId())
-        {
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.login:
                 Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_navigation_login);
                 break;
@@ -61,6 +60,4 @@ public class HomeFragment extends Fragment
                 break;
         }
     }
-
-
 }
