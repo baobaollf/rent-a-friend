@@ -44,26 +44,16 @@ public class Home extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.login);
 
-       sp = getSharedPreferences("login",MODE_PRIVATE);
-       rg = getSharedPreferences("register", MODE_PRIVATE);
-//
-//
-//        if(sp.getBoolean("logged",false)){
-//            //goToLogin();
-//            goToMainActivity();
-//        }
-//        else if(sp.getBoolean("registered", false)){
-//            goToLogin();
-//            //goToMainActivity();
-//        }
+       //sp = getSharedPreferences("login",MODE_PRIVATE);
+       //rg = getSharedPreferences("register", MODE_PRIVATE);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // show activity page if not logged in before
+
                 Intent myIntent = new Intent(v.getContext(), Login.class);
                 startActivityForResult(myIntent, 0);
-                goToMainActivity();
 
             }
 
@@ -76,26 +66,10 @@ public class Home extends AppCompatActivity {
                 // go to register page
                     Intent myIntent = new Intent(v.getContext(), Register.class);
                     startActivityForResult(myIntent, 1);
-//                // after registering, Login
-                    goToLogin();
-//                // then go to activity page
-                    goToMainActivity();
-
-
             }
 
         });
 
-    }
-
-    public void goToMainActivity(){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-
-    public void goToLogin(){
-        Intent r = new Intent(this, Login.class);
-        startActivity(r);
     }
 }
 

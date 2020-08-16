@@ -13,41 +13,34 @@ import com.rent_a_friend.MainActivity;
 import com.rent_a_friend.R;
 import com.rent_a_friend.ui.login.Login;
 
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity  implements View.OnClickListener{
     private RegisterViewModel registerViewModel;
-    private static EditText name;
-    private static EditText password;
-    private static EditText phonenumber;
-    private static Button register_btn;
+    EditText name;
+    EditText password;
+    EditText phone;
+    Button register;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        RegisterButton();
+
+        name = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+        phone = (EditText) findViewById(R.id.phone);
+        register = (Button) findViewById(R.id.register);
+
+        register.setOnClickListener(this);
     }
 
-    private void RegisterButton() {
-        name = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        phonenumber = (EditText)findViewById(R.id.phone);
-        register_btn = (Button)findViewById(R.id.register);
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.register:
+                startActivity(new Intent(this, Login.class));
+                break;
+        }
 
-        register_btn.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if(name.getText().toString().equals("user") &&
-                                password.getText().toString().equals("pass") &&
-                                    phonenumber.getText().toString().equals("2345"))  {
-                            Toast.makeText(Register.this,"User and Password is correct",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent("com.rent_a_person.Login");
-                            startActivity(intent);
-                        }
-                    }
-                }
-        );
     }
 
 
