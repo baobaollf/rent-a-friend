@@ -1,15 +1,11 @@
 package com.rent_a_friend.ui.upload;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Location;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,15 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -51,7 +44,7 @@ public class UploadFragment extends Fragment {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     // Create a storage reference from our app
     StorageReference storageRef = storage.getReference();
-    Button uploadButton;
+    Button imagePickerButton;
     ImageView imageView;
     Uri imageUri;
     GeoPoint geoPoint;
@@ -63,15 +56,25 @@ public class UploadFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_upload, container, false);
-        uploadButton = (Button) fragmentView.findViewById(R.id.upload_icon);
+        imagePickerButton = (Button) fragmentView.findViewById(R.id.upload_icon);
         imageView = (ImageView) fragmentView.findViewById(R.id.image_placeholder);
+        Button uploadButton = fragmentView.findViewById(R.id.upload_button);
+
         curLocation();
-        uploadButton.setOnClickListener(new View.OnClickListener() {
+        imagePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 choseFile();
             }
         });
+
+        uploadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadToFirestore(imageUri);
+            }
+        });
+
         return fragmentView;
     }
 
@@ -86,7 +89,7 @@ public class UploadFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == 1) {
             imageUri = data.getData();
-            uploadToFirestore(imageUri);
+
             imageView.setImageURI(imageUri);
         }
     }

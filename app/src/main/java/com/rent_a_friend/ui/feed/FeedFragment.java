@@ -51,7 +51,7 @@ public class FeedFragment extends Fragment {
     }
 
     private void getFeeds(final RecyclerViewAdapter adapter) {
-        db.collection("feeds").orderBy("username", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("feeds").orderBy("time", Query.Direction.DESCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
