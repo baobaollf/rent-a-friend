@@ -56,12 +56,11 @@ public class FeedFragment extends Fragment {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
-                    Log.d("data_base", "listen:error");
+
                     return;
                 }
                 for (QueryDocumentSnapshot doc : value) {
                     if(doc.get("image") != null) {
-                        Log.d("data_base", doc.getString("image"));
                         imageUrl.add(doc.getString("image"));
                     }
                     if (doc.get("username") != null) {

@@ -49,12 +49,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
-        //Log.d("data_base", bitmaps.size() + " size");
-        //holder.username.setText((String)list.get(position).get("username"));
-        // Log.d("in_adapter", (String) Objects.requireNonNull(list.get(1).get("username")));
-        //holder.mainImage.setImageBitmap();
-        // Access a Cloud Firestore instance from your Activity
-
         holder.username.setText(username.get(position));
         Glide.with(context).load(bitmaps.get(position)).into(holder.mainImage);
     }
