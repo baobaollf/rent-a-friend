@@ -24,6 +24,8 @@
     <string name="chatIcon">chatIcon</string>
     <string name="mainImage">mainImage</string>
     <string name="testString_UserName">User Name</string>
+    <string name="full_name">full name</string>
+    <string name="Full_Name">Full Name</string>
 
 
 </resources>

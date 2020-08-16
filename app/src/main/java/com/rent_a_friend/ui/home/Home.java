@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.rent_a_friend.MainActivity;
 import com.rent_a_friend.R;
 import com.rent_a_friend.ui.home.HomeViewModel;
@@ -44,6 +45,9 @@ public class Home extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.login);
 
+       // FirebaseAuth.getInstance().signOut();
+
+
        //sp = getSharedPreferences("login",MODE_PRIVATE);
        //rg = getSharedPreferences("register", MODE_PRIVATE);
 
@@ -54,7 +58,6 @@ public class Home extends AppCompatActivity {
 
                 Intent myIntent = new Intent(v.getContext(), Login.class);
                 startActivityForResult(myIntent, 0);
-
             }
 
         });
