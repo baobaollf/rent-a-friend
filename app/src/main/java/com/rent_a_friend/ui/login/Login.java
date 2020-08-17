@@ -41,6 +41,7 @@ public class Login extends AppCompatActivity  {
      EditText username;
      EditText password;
      Button login;
+     TextView createBtn;
      FirebaseAuth fAuth;
 
     @Override
@@ -51,6 +52,7 @@ public class Login extends AppCompatActivity  {
         username = (EditText)findViewById(R.id.username);
         password = (EditText)findViewById(R.id.password);
         login = (Button)findViewById(R.id.login);
+        createBtn = findViewById(R.id.createText);
         fAuth = FirebaseAuth.getInstance();
 
         //if user already login sent to login page
@@ -96,6 +98,13 @@ public class Login extends AppCompatActivity  {
             }
 
             });
+
+        createBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Register.class));
+            }
+        });
         }
     }
 
