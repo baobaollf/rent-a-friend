@@ -36,8 +36,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     EditText phone;
     Button register;
     TextView loginBtn;
-    FirebaseAuth fAuth;
-    FirebaseFirestore fstore;
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore fstore = FirebaseFirestore.getInstance();
+
+
     String userID;
 
     @Override
@@ -52,8 +54,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         register = (Button) findViewById(R.id.register);
         loginBtn = findViewById(R.id.createText);
 
-        fAuth = FirebaseAuth.getInstance();
-        fstore = FirebaseFirestore.getInstance();
+
 
         //if user already registered sent to login page
 //        if(fAuth.getCurrentUser() != null){
@@ -93,22 +94,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         if (task.isSuccessful()) {
                             Toast.makeText(Register.this, "User Created", Toast.LENGTH_SHORT).show();
                             userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fstore.collection("users").document(userID);
+
                             Map<String, Object> user = new HashMap<>();
                             user.put("fname", fullName);
                             user.put("email", username);
                             user.put("phone", phone);
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d( TAG,"onSuccess: user Profile is created for " + userID);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: " + e.toString());
-                                }
-                            });
+                            fstore.collection("users").add(user);
                             startActivity(new Intent(getApplicationContext(), Login.class));
                         } else {
                             Toast.makeText(Register.this, "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
