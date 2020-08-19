@@ -1,36 +1,16 @@
 package com.rent_a_friend.ui.home;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.rent_a_friend.MainActivity;
 import com.rent_a_friend.R;
-import com.rent_a_friend.ui.home.HomeViewModel;
-import com.rent_a_friend.ui.home.HomeFragment;
 import com.rent_a_friend.ui.login.Login;
-import com.rent_a_friend.ui.login.LoginFragment;
 import com.rent_a_friend.ui.register.Register;
-import com.rent_a_friend.ui.register.RegisterFragment;
-
-import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
