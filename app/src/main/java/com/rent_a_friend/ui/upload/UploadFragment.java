@@ -130,7 +130,6 @@ public class UploadFragment extends Fragment {
                     feed.put("time", Calendar.getInstance().getTime());
                     feed.put("username", "Testing User #2");
                     db.collection("feeds").add(feed);
-                    // Toast.makeText(getActivity(), downloadUri.toString(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "fail to get url", Toast.LENGTH_SHORT).show();
                 }

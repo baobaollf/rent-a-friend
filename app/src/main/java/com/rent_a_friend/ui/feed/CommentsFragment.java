@@ -87,6 +87,8 @@ public class CommentsFragment extends Fragment {
                 if (error != null) {
                     return;
                 }
+                comments.clear();
+                username.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     if(doc.get("comment") != null) {
                         comments.add(doc.getString("comment"));
