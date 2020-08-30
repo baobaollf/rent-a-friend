@@ -25,6 +25,7 @@
     <string name="chatIcon">chatIcon</string>
     <string name="mainImage">mainImage</string>
     <string name="testString_UserName">User Name</string>
+    <string name="comment_section_holder">Comments will display here</string>
     <string name="full_name">full name</string>
     <string name="Full_Name">Full Name</string>
     <string name="createText">New User? Register Here</string>
