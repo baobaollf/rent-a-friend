@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.feed.CommentsFragment">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/comment_recyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="@string/comment_section_holder"/>-->
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/comment_edit_text"
+            android:inputType="text"
+            android:hint="@string/enter_comment_here" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/upload"
+            android:id="@+id/upload_comment_button"
+            android:textColor="@android:color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comment_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

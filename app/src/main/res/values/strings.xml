@@ -29,6 +29,7 @@
     <string name="full_name">full name</string>
     <string name="Full_Name">Full Name</string>
     <string name="createText">New User? Register Here</string>
+    <string name="enter_comment_here">enter comment here</string>
 
 
 </resources>
