@@ -56,6 +56,8 @@ public class FeedFragment extends Fragment {
                 if (error != null) {
                     return;
                 }
+                imageUrl.clear();
+                username.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     if(doc.get("image") != null) {
                         imageUrl.add(doc.getString("image"));
